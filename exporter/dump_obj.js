@@ -84,6 +84,9 @@ function initNodeSearch(rootEpoch, numParallelBranches = 1, nodeFound = null, no
 					results.push({ oct, res: await search(k + oct, maxLevel) });
 					if (results.length === 8) {
 						const octs = results.filter(({ res }) => res).map(({ oct }) => oct)
+						// if (octs.length > 0 ) {
+						// 	console.log('path:', k);
+						// }
 						const node = await getNode(k, check.bulk, check.index);
 						try {
 							nodeDownloaded && nodeDownloaded(k, node, octs);
